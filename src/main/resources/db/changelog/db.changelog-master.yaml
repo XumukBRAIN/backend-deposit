@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changeset/product_table.sql
+  - include:
+      file: db/changelog/changeset/account_table.sql
+  - include:
+      file: db/changelog/changeset/operation_type_table.sql
+  - include:
+      file: db/changelog/changeset/agreement_table.sql
+  - include:
+      file: db/changelog/changeset/card_table.sql
+  - include:
+      file: db/changelog/changeset/operation_table.sql
