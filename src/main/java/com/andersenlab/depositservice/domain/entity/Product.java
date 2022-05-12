@@ -28,7 +28,7 @@ public class Product {
     private String schemaName;
 
     @Column(name = "interest_rate_early")
-    private Integer interestRateEarly;
+    private BigDecimal interestRateEarly;
 
     @Column(name = "is_capitalization")
     private boolean isCapitalization;

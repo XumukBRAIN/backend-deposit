@@ -30,7 +30,7 @@ public class Operation {
     @JoinColumn(name = "account_number")
     private Account account;
 
-    @Column(name = "account_number")
+    @Column(name = "card_number")
     private String cardNumber;
 
     @Column(name = "completed_at")
