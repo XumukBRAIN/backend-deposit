@@ -1,5 +1,6 @@
 package com.andersenlab.depositservice.service.impl;
 
+import com.andersenlab.depositservice.domain.dto.ResponseAvailableDepositsDto;
 import com.andersenlab.depositservice.domain.dto.ResponseCompletedDepositsDto;
 import com.andersenlab.depositservice.domain.entity.Account;
 import com.andersenlab.depositservice.domain.entity.Agreement;
@@ -24,7 +25,7 @@ public class DepositsServiceImpl implements DepositsService {
 
 
     @Override
-    public Collection<ResponseCompletedDepositsDto> getDeposits(String clientId) {
+    public Collection<ResponseCompletedDepositsDto> getCompleted(String clientId) {
 
         Optional<Account> account = accountRepository.findByClientId(UUID.fromString(clientId));
         if (account.isPresent()){
@@ -32,6 +33,17 @@ public class DepositsServiceImpl implements DepositsService {
             return depositMapper.accountToResponseCompletedDepositsDto(account.get());
         }
 
+        throw new RuntimeException("Account not found");
+    }
+
+    @Override
+    public Collection<ResponseAvailableDepositsDto> getAvailable(String clientId) {
+
+        Optional<Account> account = accountRepository.findByClientId(UUID.fromString(clientId));
+        if(account.isPresent()){
+
+            return null;
+        }
         throw new RuntimeException("Account not found");
     }
 }

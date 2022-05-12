@@ -1,5 +1,6 @@
 package com.andersenlab.depositservice.domain.mapper;
 
+import com.andersenlab.depositservice.domain.dto.ResponseAvailableDepositsDto;
 import com.andersenlab.depositservice.domain.dto.ResponseCompletedDepositsDto;
 import com.andersenlab.depositservice.domain.entity.Account;
 
@@ -9,6 +10,6 @@ public interface DepositMapper {
 
     Collection <ResponseCompletedDepositsDto> accountToResponseCompletedDepositsDto (Account account);
 
-
+    Collection <ResponseAvailableDepositsDto> accountToResponseAvailableDepositsDto (Account account);
 
 }

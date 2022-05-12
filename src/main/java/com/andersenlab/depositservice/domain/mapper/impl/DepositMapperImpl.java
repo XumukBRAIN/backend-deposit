@@ -1,5 +1,6 @@
 package com.andersenlab.depositservice.domain.mapper.impl;
 
+import com.andersenlab.depositservice.domain.dto.ResponseAvailableDepositsDto;
 import com.andersenlab.depositservice.domain.dto.ResponseCompletedDepositsDto;
 import com.andersenlab.depositservice.domain.entity.Account;
 import com.andersenlab.depositservice.domain.entity.Agreement;
@@ -39,6 +40,30 @@ public class DepositMapperImpl implements DepositMapper {
         return responses;
     }
 
+    @Override
+    public Collection<ResponseAvailableDepositsDto> accountToResponseAvailableDepositsDto(Account account) {
+        Collection<ResponseAvailableDepositsDto> responses = new ArrayList<>();
+        Set<Agreement> agreements = account.getAgreements();
+        for (Agreement agreement :
+                agreements) {
 
-
+            responses.add(ResponseAvailableDepositsDto.builder()
+                    .productName(agreement.getProduct().getName())
+                    .productId(String.valueOf(agreement.getProduct().getId()))
+                    .minInterestRate(agreement.getProduct().getMinInterestRate())
+                    .maxInterestRate(agreement.getProduct().getMaxInterestRate())
+                    .interestRateEarly(agreement.getProduct().getInterestRateEarly())
+                    .currencyCode(agreement.getProduct().getCurrencyCode())
+                    .isRevocable(agreement.getProduct().isRevocable())
+                    .schemaName(agreement.getProduct().getSchemaName())
+                    .isCapitalization(agreement.getProduct().isCapitalization())
+                    .minDurationMonths(agreement.getProduct().getMinDurationMonths())
+                    .maxDurationMonths(agreement.getProduct().getMaxDurationMonths())
+                    .amountMin(agreement.getProduct().getAmountMin())
+                    .amountMax(agreement.getProduct().getAmountMax())
+                    .build()
+            );
+        }
+        return responses;
+    }
 }
