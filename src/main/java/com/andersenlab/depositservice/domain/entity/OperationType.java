@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder(setterPrefix = "with")
+@Builder
 
 public class OperationType {
 

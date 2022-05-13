@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder(setterPrefix = "with")
+@Builder
 
 public class Card {
 

@@ -1,6 +1,5 @@
 package com.andersenlab.depositservice.domain.dto;
 
-
 import lombok.Builder;
 import lombok.Data;
 

@@ -12,7 +12,7 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder(setterPrefix = "with")
+@Builder
 
 public class Agreement {
 
@@ -45,9 +45,9 @@ public class Agreement {
     private BigDecimal currentBalance;
 
     @Column(name = "is_active")
-    private boolean isActive;
+    private Boolean isActive;
 
     @Column(name = "auto_renewal")
-    private boolean autoRenewal;
+    private Boolean autoRenewal;
 
 }
