@@ -1,12 +1,12 @@
 spring:
   config:
     activate:
-      on-profile: default
+      on-profile: local
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://10.10.14.17:5432/AmusicDB
-    username: amusic
-    password: amusicpass
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: serg
+    password: 12345
   jpa:
     properties:
       hibernate:
@@ -15,9 +15,9 @@ spring:
         format_sql: true
         enable_lazy_load_no_trans: true
         ddl-auto: none
-  liquibase:
-    enabled: true
-    change-log: classpath:db/changelog/db.changelog-master.yaml
+#  liquibase:
+#    enabled: true
+#    change-log: classpath:db/changelog/db.changelog-master.yaml
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
@@ -36,8 +36,9 @@ logging:
       hibernate:
         type: TRACE
 
+
 security:
   token:
     secret: secret
     expiration: 3600000 # это 1 час в мс по формуле 1(час) * 60(мин) * 60(сек) * 1000(мс)
-  code-expiration: 15
+  code-expiration: 2
