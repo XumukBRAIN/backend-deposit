@@ -8,7 +8,7 @@ import com.andersenlab.depositservice.domain.entity.Agreement;
 import com.andersenlab.depositservice.domain.exeption.InternalServerException;
 import com.andersenlab.depositservice.domain.mapper.DepositMapper;
 import com.andersenlab.depositservice.repository.AccountRepository;
-import com.andersenlab.depositservice.service.DepositsService;
+import com.andersenlab.depositservice.service.DepositService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +19,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class DepositsServiceImpl implements DepositsService {
+public class DepositServiceImpl implements DepositService {
 
     private final AccountRepository accountRepository;
 
@@ -64,5 +64,13 @@ public class DepositsServiceImpl implements DepositsService {
         }
         throw new InternalServerException("Internal Server Error");
     }
+
+    @Override
+    public String updateEarlyReturnDepositsDto(String clientId) {
+
+
+        return null;
+    }
+
 
 }
