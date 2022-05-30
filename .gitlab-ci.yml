@@ -34,7 +34,7 @@ deploy:
     - docker rm $PROGECT-$APP-dev || true
     - docker rmi -f $AND_DOCKER_REGISTRY_NAME/$PROGECT-$APP:dev || true
     - docker image prune -f || true
-    - docker-compose -f docker-compose.yml pull
-    - docker-compose -f docker-compose.yml up --force-recreate -d
+    - docker-compose -f docker-compose.yaml pull
+    - docker-compose -f docker-compose.yaml up --force-recreate -d
   only:
     - devops_deploy
