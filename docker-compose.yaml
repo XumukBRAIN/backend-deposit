@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  
+  db:
+    image: postgres:14.2
+    domainname: db-backend-deposit
+    hostname: db-backend-deposit
+    restart: always
+    ports:
+      - 5433:5432
+    volumes:
+      - /var/lib/docker/volumes/backend-deposit-db/data:/var/lib/postgresql/data:rw
+    environment:
+      POSTGRES_DB: $AND_DB_NAME
+      POSTGRES_USER: $AND_DB_USER
+      POSTGRES_PASSWORD: $AND_DB_PASS
+    networks:
+      - amusic-new-net-deposit
+  
+  backend-deposit:
+    container_name: $PROGECT-$APP-dev
+    build:
+      context: .
+    image: $AND_DOCKER_REGISTRY_NAME/$PROGECT-$APP:dev
+    ports:
+      - 8081:8080
+    restart: always
+    volumes:
+        - /home/amusic2new/backend-deposit/logs:/app/logs:rw
+    networks:
+      - amusic-new-net-deposit
+
+networks:
+  amusic-new-net-deposit:
+    driver: bridge
+
+
+
