@@ -33,7 +33,7 @@ deploy:
     - docker stop $PROGECT-$APP-dev || true
     - docker rm $PROGECT-$APP-dev || true
     - docker rmi -f $AND_DOCKER_REGISTRY_NAME/$PROGECT-$APP:dev || true
-   # - docker image prune -f || true
+    - docker image prune -f || true
     - docker-compose -f docker-compose.yaml pull
     - docker-compose -f docker-compose.yaml up --force-recreate -d
   only:
