@@ -4,9 +4,9 @@ spring:
       on-profile: local
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: serg
-    password: 12345
+    url: jdbc:postgresql://localhost:5432/newDB
+    username: *
+    password: *
   jpa:
     properties:
       hibernate:
@@ -15,9 +15,9 @@ spring:
         format_sql: true
         enable_lazy_load_no_trans: true
         ddl-auto: none
-#  liquibase:
-#    enabled: true
-#    change-log: classpath:db/changelog/db.changelog-master.yaml
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.yaml
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
