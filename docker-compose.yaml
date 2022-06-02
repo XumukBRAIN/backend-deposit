@@ -2,7 +2,7 @@ version: "3"
 
 services:
   
-  db:
+  deposit_db:
     image: postgres:12.11
     container_name: db-backend-deposit
     domainname: db-backend-deposit
