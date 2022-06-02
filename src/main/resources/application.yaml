@@ -4,9 +4,9 @@ spring:
       on-profile: default
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://10.10.14.17:5432/AmusicDB
-    username: amusic
-    password: amusicpass
+    url: jdbc:postgresql://10.10.14.16:5433/a-music
+    username: postgres
+    password: g6wbu6HzoFwf
   jpa:
     properties:
       hibernate:
