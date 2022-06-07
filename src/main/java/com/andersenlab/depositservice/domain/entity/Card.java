@@ -49,7 +49,7 @@ public class Card {
     @Column(name = "cashback")
     private BigDecimal cashback;
 
-    @Column(name = "co-brand")
+    @Column(name = "co_brand")
     private String coBrand;
 
     @Column(name = "digital_wallet")
