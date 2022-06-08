@@ -1,10 +1,12 @@
 package com.andersenlab.depositservice.domain.entity;
 
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.UUID;
 
 @Entity
@@ -13,11 +15,11 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @EqualsAndHashCode.Exclude
     private UUID id;
 
@@ -65,5 +67,8 @@ public class Product {
 
     @Column(name = "active_until")
     private LocalDate activeUntil;
+
+    @OneToMany(mappedBy = "product")
+    private Collection <Agreement> agreements;
 
 }

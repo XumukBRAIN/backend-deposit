@@ -1,6 +1,7 @@
 package com.andersenlab.depositservice.domain.entity;
 
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -13,19 +14,21 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
 public class Agreement {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @EqualsAndHashCode.Exclude
-    private UUID id;
+    private String id;
 
     @ManyToOne
     @JoinColumn(name = "account_number")
     private Account account;
 
-    @OneToOne
+    @ManyToOne
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @JoinColumn(name = "product_id")
     private Product product;
 

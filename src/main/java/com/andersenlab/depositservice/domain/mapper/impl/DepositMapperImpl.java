@@ -16,10 +16,11 @@ import java.util.*;
 
 @Component
 public class DepositMapperImpl implements DepositMapper {
+
     @Override
-    public Collection<ResponseCompletedDepositsDto> accountToResponseCompletedDepositsDto(Account account) {
-        Collection<ResponseCompletedDepositsDto> responses = new ArrayList<>();
-        Set<Agreement> agreements = account.getAgreements();
+    public List<ResponseCompletedDepositsDto> accountToResponseCompletedDepositsDto(Account account) {
+        List<ResponseCompletedDepositsDto> responses = new ArrayList<>();
+        Collection<Agreement> agreements = account.getAgreements();
         for (Agreement agreement :
                 agreements) {
 
@@ -31,7 +32,7 @@ public class DepositMapperImpl implements DepositMapper {
                     .schemaName(agreement.getProduct().getSchemaName())
                     .startDate(agreement.getStartDate())
                     .endDate(agreement.getEndDate())
-                    .agreement_id(String.valueOf(agreement.getId()))
+                    .agreementId(String.valueOf(agreement.getId()))
                     .autoRenewal(agreement.getAutoRenewal())
                     .interestRate(agreement.getInterestRate())
                     .currencyCode(account.getCurrencyCode())
@@ -46,7 +47,7 @@ public class DepositMapperImpl implements DepositMapper {
     @Override
     public Collection<ResponseAvailableDepositsDto> accountToResponseAvailableDepositsDto(Account account) {
         Collection<ResponseAvailableDepositsDto> responses = new ArrayList<>();
-        Set<Agreement> agreements = account.getAgreements();
+        Collection<Agreement> agreements = account.getAgreements();
         for (Agreement agreement :
                 agreements) {
 

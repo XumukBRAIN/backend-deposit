@@ -14,7 +14,7 @@ public class ResponseCompletedDepositsDto {
     private final Date startDate;
     private final Date endDate;
     private final String productName;
-    private final String agreement_id;
+    private final String agreementId;
     private final BigDecimal currentBalance;
     private final Boolean autoRenewal;
     private final Boolean isCapitalization;

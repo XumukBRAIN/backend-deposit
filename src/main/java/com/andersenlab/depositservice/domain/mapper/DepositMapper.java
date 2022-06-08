@@ -7,10 +7,11 @@ import com.andersenlab.depositservice.domain.entity.Account;
 import com.andersenlab.depositservice.domain.entity.Agreement;
 
 import java.util.Collection;
+import java.util.List;
 
 public interface DepositMapper {
 
-    Collection<ResponseCompletedDepositsDto> accountToResponseCompletedDepositsDto(Account account);
+    List<ResponseCompletedDepositsDto> accountToResponseCompletedDepositsDto(Account account);
 
     Collection<ResponseAvailableDepositsDto> accountToResponseAvailableDepositsDto(Account account);
 
