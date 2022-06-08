@@ -2,6 +2,7 @@ package com.andersenlab.depositservice.domain.entity;
 
 
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -14,11 +15,11 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
 public class Operation {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @EqualsAndHashCode.Exclude
     private UUID id;
 
@@ -29,9 +30,6 @@ public class Operation {
     @ManyToOne
     @JoinColumn(name = "account_number")
     private Account account;
-
-    @Column(name = "card_number")
-    private String cardNumber;
 
     @Column(name = "completed_at")
     private Date completedAt;

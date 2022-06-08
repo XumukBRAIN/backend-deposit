@@ -11,11 +11,10 @@ import com.andersenlab.depositservice.repository.AccountRepository;
 import com.andersenlab.depositservice.service.DepositService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collection;
-import java.util.Optional;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -27,12 +26,13 @@ public class DepositServiceImpl implements DepositService {
 
 
     @Override
-    public Collection<ResponseCompletedDepositsDto> getCompleted(String clientId) {
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+    public List<ResponseCompletedDepositsDto> getCompleted(String clientId) {
 
         Optional<Account> account = accountRepository.findByClientId(UUID.fromString(clientId));
         if (account.isPresent()) {
-
-            return depositMapper.accountToResponseCompletedDepositsDto(account.get());
+            Account account1 = account.get();
+            return depositMapper.accountToResponseCompletedDepositsDto(account1);
         }
 
         throw new InternalServerException("Internal Server Error");
@@ -56,7 +56,7 @@ public class DepositServiceImpl implements DepositService {
 
             Agreement agreement = depositMapper.requestPlacingNewDepositDtoToAgreement(requestPlacingNewDepositDto);
             Account account1 = account.get();
-            Set<Agreement> agreements = account1.getAgreements();
+            List<Agreement> agreements = account1.getAgreements();
             agreements.add(agreement);
             account1.setAgreements(agreements);
             accountRepository.save(account1);
