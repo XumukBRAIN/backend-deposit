@@ -1,9 +1,6 @@
 package com.andersenlab.depositservice.models.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -16,6 +13,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 @Data
+@ToString
 @Entity
 @Table(name = "account")
 public class Account {

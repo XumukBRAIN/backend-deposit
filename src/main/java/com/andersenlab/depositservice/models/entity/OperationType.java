@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Setter
 @Getter
 @Data
+@ToString
 @Entity
 @Table(name = "operation_type")
 public class OperationType {

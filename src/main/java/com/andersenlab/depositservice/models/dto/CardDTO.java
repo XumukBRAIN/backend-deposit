@@ -2,15 +2,22 @@ package com.andersenlab.depositservice.models.dto;
 
 import com.andersenlab.depositservice.models.entity.Account;
 import com.andersenlab.depositservice.models.entity.CardProduct;
-import lombok.ToString;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
+
 @ToString
+@Getter
+@Setter
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class CardDTO {
 
-    private String card_number;
+    private String cardNumber;
 
     private CardProduct cardProduct;
 
@@ -28,75 +35,10 @@ public class CardDTO {
 
     private boolean is_default;
 
-    public String getCard_number() {
-        return card_number;
-    }
+    private String accountNumber;
 
-    public void setCard_number(String card_number) {
-        this.card_number = card_number;
-    }
+    private String currencyCode;
 
-    public CardProduct getCardProduct() {
-        return cardProduct;
-    }
+    private BigDecimal currentBalance;
 
-    public void setCardProduct(CardProduct cardProduct) {
-        this.cardProduct = cardProduct;
-    }
-
-    public Account getAccount() {
-        return account;
-    }
-
-    public void setAccount(Account account) {
-        this.account = account;
-    }
-
-    public BigDecimal getTransactional_limit() {
-        return transactional_limit;
-    }
-
-    public void setTransactional_limit(BigDecimal transactional_limit) {
-        this.transactional_limit = transactional_limit;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public Date getExpiration_date() {
-        return expiration_date;
-    }
-
-    public void setExpiration_date(Date expiration_date) {
-        this.expiration_date = expiration_date;
-    }
-
-    public String getHolder_name() {
-        return holder_name;
-    }
-
-    public void setHolder_name(String holder_name) {
-        this.holder_name = holder_name;
-    }
-
-    public String getDigital_wallet() {
-        return digital_wallet;
-    }
-
-    public void setDigital_wallet(String digital_wallet) {
-        this.digital_wallet = digital_wallet;
-    }
-
-    public boolean isIs_default() {
-        return is_default;
-    }
-
-    public void setIs_default(boolean is_default) {
-        this.is_default = is_default;
-    }
 }

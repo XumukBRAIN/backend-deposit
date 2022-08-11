@@ -14,6 +14,7 @@ import java.util.Date;
 @Setter
 @Getter
 @Entity
+@ToString
 @Table(name = "product")
 public class Product {
 

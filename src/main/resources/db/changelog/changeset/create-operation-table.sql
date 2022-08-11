@@ -1,5 +1,4 @@
-CREATE TABLE operation
-(
+CREATE TABLE operation(
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     account_id uuid references account(id),
     account_number VARCHAR(30),

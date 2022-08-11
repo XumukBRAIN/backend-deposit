@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @Transactional(readOnly = true)
@@ -15,19 +16,9 @@ public class CardService {
 
     private final CardRepository cardRepository;
 
-    public List<Card> getAllCards(){
-        return cardRepository.findAll();
+    @Transactional(readOnly = true)
+    public List<Card> getCardsByAccount_clientId(UUID client_id){
+        return cardRepository.findCardsByAccount_ClientId(client_id);
     }
-
-    public Card getCard(String cardNumber){
-        return cardRepository.findByCardNumber(cardNumber);
-    }
-
-    @Transactional
-    public void createCard(Card card){
-        cardRepository.save(card);
-    }
-
-
 
 }

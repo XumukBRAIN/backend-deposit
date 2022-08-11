@@ -14,13 +14,14 @@ import java.util.UUID;
 @Builder
 @Data
 @Entity
+@ToString
 @Table(name = "operation")
 public class Operation {
 
     @Id
     @GeneratedValue(generator = "UUID")
     @EqualsAndHashCode.Exclude
-    private UUID operation_id;
+    private UUID id;
 
     @OneToOne
     @JoinColumn(name = "account_id")
