@@ -15,9 +15,6 @@ import java.util.UUID;
 @Table(name = "card")
 @Data
 @Builder
-@Getter
-@Setter
-@ToString
 public class Card {
 
     @Id

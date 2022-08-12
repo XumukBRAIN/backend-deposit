@@ -34,10 +34,28 @@ public interface CardMapper {
     @Mapping(target = "holder_name", source = "holder_name")
     @Mapping(target = "digital_wallet", source = "digital_wallet")
     @Mapping(target = "is_default", source = "is_default")
-    @Mapping(target = "card_product_id", source = "card.card_product_id")
-    @Mapping(target = "accountNumber", source = "accountNumber")
-    @Mapping(target = "currencyCode", source = "currencyCode")
-    @Mapping(target = "currentBalance", source = "currentBalance")
+    @Mapping(target = "card_product_id", expression = "java(setCardProductId(card))")
+    @Mapping(target = "accountNumber", expression = "java(setAccountNumber(card))")
+    @Mapping(target = "currencyCode", expression = "java(setAccountCurrencyCode(card))")
+    @Mapping(target = "currentBalance", expression = "java(setAccountCurrentBalance(card))")
+    CardDTO toCardDTO(Card card);
+
     List<CardDTO> toListCardDTO(List<Card> cardList);
+
+    default String setCardProductId(Card card){
+        return String.valueOf(card.getCardProduct().getId());
+    }
+
+    default String setAccountNumber(Card card){
+        return card.getAccount().getAccountNumber();
+    }
+
+    default String setAccountCurrencyCode(Card card){
+        return card.getAccount().getCurrencyCode();
+    }
+
+    default String setAccountCurrentBalance(Card card){
+        return String.valueOf(card.getAccount().getCurrentBalance());
+    }
 
 }

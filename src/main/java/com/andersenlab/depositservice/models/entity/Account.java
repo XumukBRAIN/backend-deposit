@@ -14,7 +14,6 @@ import java.util.UUID;
 @Builder
 @Data
 @Entity
-@ToString
 @Table(name = "account")
 public class Account {
 
