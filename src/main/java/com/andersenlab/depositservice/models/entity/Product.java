@@ -14,7 +14,6 @@ import java.util.Date;
 @Setter
 @Getter
 @Entity
-@ToString
 @Table(name = "product")
 public class Product {
 
@@ -24,10 +23,8 @@ public class Product {
     private int id;
 
     @OneToOne(mappedBy = "product")
+    @ToString.Exclude
     private Agreement agreement;
-
-    @ManyToOne
-    private Account account;
 
     @Column(name = "name")
     private String name;

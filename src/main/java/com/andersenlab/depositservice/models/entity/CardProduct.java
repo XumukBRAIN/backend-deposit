@@ -1,5 +1,6 @@
 package com.andersenlab.depositservice.models.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -11,9 +12,9 @@ import java.math.BigDecimal;
 @Data
 @Setter
 @Getter
+@ToString
 @Entity
 @Table(name = "card_product")
-@ToString
 public class CardProduct {
 
     @Id
@@ -21,7 +22,9 @@ public class CardProduct {
     @EqualsAndHashCode.Exclude
     private int id;
 
-    @OneToOne(mappedBy = "cardProduct")
+    @OneToOne(mappedBy = "cardProduct", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ToString.Exclude
+    @JsonIgnoreProperties
     private Card card;
 
     @Column(name = "card_name")

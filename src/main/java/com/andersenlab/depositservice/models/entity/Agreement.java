@@ -32,6 +32,7 @@ public class Agreement {
 
     @ManyToOne
     @JoinColumn(name = "account_id")
+    @ToString.Exclude
     private Account account;
 
     @Column(name = "interest_rate")

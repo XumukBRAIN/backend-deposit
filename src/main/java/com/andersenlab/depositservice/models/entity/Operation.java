@@ -14,7 +14,6 @@ import java.util.UUID;
 @Builder
 @Data
 @Entity
-@ToString
 @Table(name = "operation")
 public class Operation {
 
@@ -25,10 +24,12 @@ public class Operation {
 
     @OneToOne
     @JoinColumn(name = "account_id")
+    @ToString.Exclude
     private Account account;
 
     @OneToOne
     @JoinColumn(name = "operation_type_id")
+    @ToString.Exclude
     private OperationType operationType;
 
     @Column(name = "completed_at")
