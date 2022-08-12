@@ -12,18 +12,19 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(path = "auth/deposits")
+@RequestMapping(path = "auth/deposit-cards")
 @RequiredArgsConstructor
-@Api("DS-5._Получить_список_карт_Пользователя")
+@Api("DS-5._Get_user card_list")
 public class CardController {
 
     private final CardService cardService;
     private final CardMapper cardMapper;
 
-    @GetMapping("/all/{clientId}")
+    @GetMapping("/{clientId}")
     @ApiOperation("Метод для просмотра карт у пользователя по полю clientId. " +
             "clientId должен быть обязательно UUID! ")
     public List<CardDTO> getAllCardsByAccount_clientId(@PathVariable UUID clientId){
         return cardMapper.toListCardDTO(cardService.getCardsByAccount_clientId(clientId));
     }
+
 }

@@ -1,6 +1,5 @@
 package com.andersenlab.depositservice.models.entity;
 
-
 import lombok.*;
 
 import javax.persistence.*;

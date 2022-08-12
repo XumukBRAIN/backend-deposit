@@ -5,11 +5,10 @@ import lombok.*;
 import java.math.BigDecimal;
 
 
-@ToString
 @Getter
 @Setter
-@Data
 @Builder
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 public class CardDTO {
@@ -17,6 +16,8 @@ public class CardDTO {
     private String cardId;
 
     private String cardNumber;
+
+    private String accountId;
 
     private BigDecimal transactionalLimit;
 
@@ -28,7 +29,7 @@ public class CardDTO {
 
     private String digitalWallet;
 
-    private boolean isDefault;
+    private boolean itDefault;
 
     private String cardProductId;
 

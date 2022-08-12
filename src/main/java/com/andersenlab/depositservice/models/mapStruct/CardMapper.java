@@ -13,12 +13,13 @@ public interface CardMapper {
 
     @Mapping(target = "cardId", source = "id")
     @Mapping(target = "cardNumber", source = "cardNumber")
+    @Mapping(target = "accountId", expression = "java(setAccountId(card))")
     @Mapping(target = "transactionalLimit", source = "transactionalLimit")
     @Mapping(target = "status", source = "status")
     @Mapping(target = "expirationDate", source = "expirationDate")
     @Mapping(target = "holderName", source = "holderName")
     @Mapping(target = "digitalWallet", source = "digitalWallet")
-    @Mapping(target = "isDefault", source = "isDefault")
+    @Mapping(target = "itDefault", source = "itDefault")
     @Mapping(target = "cardProductId", expression = "java(setCardProductId(card))")
     @Mapping(target = "accountNumber", expression = "java(setAccountNumber(card))")
     @Mapping(target = "currencyCode", expression = "java(setAccountCurrencyCode(card))")
@@ -41,6 +42,10 @@ public interface CardMapper {
 
     default BigDecimal setAccountCurrentBalance(Card card){
         return card.getAccount().getCurrentBalance();
+    }
+
+    default String setAccountId(Card card){
+        return String.valueOf(card.getAccount().getId());
     }
 
 }
