@@ -12,7 +12,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Data
+@ToString
 @Entity
 @Table(name = "operation")
 public class Operation {
@@ -33,7 +33,7 @@ public class Operation {
     private OperationType operationType;
 
     @Column(name = "completed_at")
-    private LocalDate completed_at;
+    private LocalDate completedAt;
 
     @Column(name = "sum")
     private BigDecimal sum;
@@ -42,6 +42,6 @@ public class Operation {
     private String details;
 
     @Column(name = "currency_code")
-    private char currency_code;
+    private char currencyCode;
 
 }

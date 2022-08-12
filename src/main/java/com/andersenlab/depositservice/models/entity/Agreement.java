@@ -11,7 +11,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Data
 @ToString
 @Setter
 @Getter
@@ -28,7 +27,7 @@ public class Agreement {
     private Product product;
 
     @Column(name = "agreement_number")
-    private String agreement_number;
+    private String agreementNumber;
 
     @ManyToOne
     @JoinColumn(name = "account_id")
@@ -36,24 +35,24 @@ public class Agreement {
     private Account account;
 
     @Column(name = "interest_rate")
-    private BigDecimal interest_rate;
+    private BigDecimal interestRate;
 
     @Column(name = "start_date")
-    private LocalDateTime start_date;
+    private LocalDateTime startDate;
 
     @Column(name = "end_date")
-    private LocalDateTime end_date;
+    private LocalDateTime endDate;
 
     @Column(name = "initial_amount")
-    private BigDecimal initial_amount;
+    private BigDecimal initialAmount;
 
     @Column(name = "current_balance")
-    private BigDecimal current_balance;
+    private BigDecimal currentBalance;
 
     @Column(name = "is_active")
-    private boolean is_active;
+    private boolean isActive;
 
     @Column(name = "auto_renewal")
-    private boolean auto_renewal;
+    private boolean autoRenewal;
 
 }

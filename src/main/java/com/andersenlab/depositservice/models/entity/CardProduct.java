@@ -9,7 +9,6 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Data
 @Setter
 @Getter
 @ToString
@@ -28,33 +27,33 @@ public class CardProduct {
     private Card card;
 
     @Column(name = "card_name")
-    private String card_name;
+    private String cardName;
 
     @Column(name = "payment_system")
-    private String payment_system;
+    private String paymentSystem;
 
     @Column(name = "cashback")
     private BigDecimal cashback;
 
     @Column(name = "co_brand")
-    private String co_brand;
+    private String coBrand;
 
     @Column(name = "is_virtual")
-    private boolean is_virtual;
+    private boolean isVirtual;
 
     @Column(name = "premium_status")
-    private String premium_status;
+    private String premiumStatus;
 
     @Column(name = "service_price")
-    private BigDecimal service_price;
+    private BigDecimal servicePrice;
 
     @Column(name = "product_price")
-    private BigDecimal product_price;
+    private BigDecimal productPrice;
 
     @Column(name = "currency_code")
-    private char currency_code;
+    private char currencyCode;
 
     @Column(name = "card_duration")
-    private int card_duration;
+    private int cardDuration;
 
 }

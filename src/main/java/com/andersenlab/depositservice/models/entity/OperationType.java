@@ -9,7 +9,6 @@ import javax.persistence.*;
 @Builder
 @Setter
 @Getter
-@Data
 @ToString
 @Entity
 @Table(name = "operation_type")
@@ -24,6 +23,6 @@ public class OperationType {
     private String type;
 
     @Column(name = "is_debit")
-    private boolean is_debit;
+    private boolean isDebit;
 
 }

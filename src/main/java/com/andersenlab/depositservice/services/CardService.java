@@ -1,6 +1,5 @@
 package com.andersenlab.depositservice.services;
 
-import com.andersenlab.depositservice.models.dto.CardDTO;
 import com.andersenlab.depositservice.models.entity.Card;
 import com.andersenlab.depositservice.repositories.CardRepository;
 import lombok.RequiredArgsConstructor;

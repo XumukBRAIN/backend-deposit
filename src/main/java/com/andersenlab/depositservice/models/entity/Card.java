@@ -13,7 +13,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @Entity
 @Table(name = "card")
-@Data
+@Setter
+@Getter
 @Builder
 public class Card {
 
@@ -36,25 +37,25 @@ public class Card {
     private Account account;
 
     @Column(name = "transactional_limit")
-    private BigDecimal transactional_limit;
+    private BigDecimal transactionalLimit;
 
     @Column(name = "status")
     private String status;
 
     @Column(name = "expiration_date")
-    private Date expiration_date;
+    private Date expirationDate;
 
     @Column(name = "holder_name")
-    private String holder_name;
+    private String holderName;
 
     @Column(name = "digital_wallet")
-    private String digital_wallet;
+    private String digitalWallet;
 
     @Column(name = "is_default")
-    private boolean is_default;
+    private boolean isDefault;
 
-    public boolean isIs_default() {
-        return is_default;
+    public boolean isIsDefault() {
+        return isDefault;
     }
 
 }

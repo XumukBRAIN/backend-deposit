@@ -18,19 +18,19 @@ public class CardDTO {
 
     private String cardNumber;
 
-    private BigDecimal transactional_limit;
+    private BigDecimal transactionalLimit;
 
     private String status;
 
-    private String expiration_date;
+    private String expirationDate;
 
-    private String holder_name;
+    private String holderName;
 
-    private String digital_wallet;
+    private String digitalWallet;
 
-    private boolean is_default;
+    private boolean isDefault;
 
-    private String card_product_id;
+    private String cardProductId;
 
     private String accountNumber;
 
