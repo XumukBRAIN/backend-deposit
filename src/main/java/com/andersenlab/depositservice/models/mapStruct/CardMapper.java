@@ -5,47 +5,20 @@ import com.andersenlab.depositservice.models.entity.Card;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface CardMapper {
 
     @Mapping(target = "cardId", source = "id")
-    @Mapping(target = "cardNumber", source = "cardNumber")
-    @Mapping(target = "accountId", expression = "java(setAccountId(card))")
+    @Mapping(target = "accountId", source = "card.account.id")
     @Mapping(target = "transactionalLimit", source = "transactionalLimit")
-    @Mapping(target = "status", source = "status")
-    @Mapping(target = "expirationDate", source = "expirationDate")
-    @Mapping(target = "holderName", source = "holderName")
-    @Mapping(target = "digitalWallet", source = "digitalWallet")
-    @Mapping(target = "itDefault", source = "itDefault")
-    @Mapping(target = "cardProductId", expression = "java(setCardProductId(card))")
-    @Mapping(target = "accountNumber", expression = "java(setAccountNumber(card))")
-    @Mapping(target = "currencyCode", expression = "java(setAccountCurrencyCode(card))")
-    @Mapping(target = "currentBalance", expression = "java(setAccountCurrentBalance(card))")
+    @Mapping(target = "cardProductId", source = "card.cardProduct.id")
+    @Mapping(target = "accountNumber", source = "card.account.accountNumber")
+    @Mapping(target = "currencyCode", source = "card.account.currencyCode")
+    @Mapping(target = "currentBalance", source = "card.account.currentBalance")
     CardDTO toCardDTO(Card card);
 
     List<CardDTO> toListCardDTO(List<Card> cardList);
-
-    default String setCardProductId(Card card){
-        return String.valueOf(card.getCardProduct().getId());
-    }
-
-    default String setAccountNumber(Card card){
-        return card.getAccount().getAccountNumber();
-    }
-
-    default String setAccountCurrencyCode(Card card){
-        return card.getAccount().getCurrencyCode();
-    }
-
-    default BigDecimal setAccountCurrentBalance(Card card){
-        return card.getAccount().getCurrentBalance();
-    }
-
-    default String setAccountId(Card card){
-        return String.valueOf(card.getAccount().getId());
-    }
 
 }

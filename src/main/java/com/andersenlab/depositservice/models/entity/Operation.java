@@ -7,12 +7,10 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
-@Setter
-@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ToString
+@Data
 @Entity
 @Table(name = "operation")
 public class Operation {
@@ -42,6 +40,6 @@ public class Operation {
     private String details;
 
     @Column(name = "currency_code")
-    private char currencyCode;
+    private String currencyCode;
 
 }

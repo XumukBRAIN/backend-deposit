@@ -11,9 +11,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ToString
-@Setter
-@Getter
+@Data
 @Entity
 @Table(name = "agreement")
 public class Agreement {

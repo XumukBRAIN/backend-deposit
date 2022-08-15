@@ -4,14 +4,12 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Setter
-@Getter
-@ToString
+@Data
 @Entity
 @Table(name = "product")
 public class Product {
@@ -44,7 +42,7 @@ public class Product {
     private BigDecimal amountMax;
 
     @Column(name = "currency_code")
-    private char currencyCode;
+    private String currencyCode;
 
     @Column(name = "is_active")
     private boolean isActive;
@@ -65,9 +63,9 @@ public class Product {
     private int maxDurationMonths;
 
     @Column(name = "active_since")
-    private Date activeSince;
+    private LocalDate activeSince;
 
     @Column(name = "active_until")
-    private Date activeUntil;
+    private LocalDate activeUntil;
 
 }

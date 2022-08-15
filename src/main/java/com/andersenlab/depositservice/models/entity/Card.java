@@ -6,15 +6,14 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "card")
-@Setter
-@Getter
+@Data
 @Builder
 public class Card {
 
@@ -43,7 +42,7 @@ public class Card {
     private String status;
 
     @Column(name = "expiration_date")
-    private Date expirationDate;
+    private LocalDate expirationDate;
 
     @Column(name = "holder_name")
     private String holderName;

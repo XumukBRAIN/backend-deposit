@@ -5,10 +5,8 @@ import lombok.*;
 import java.math.BigDecimal;
 
 
-@Getter
-@Setter
+@Data
 @Builder
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 public class CardDTO {

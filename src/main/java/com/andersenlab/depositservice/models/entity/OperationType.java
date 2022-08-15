@@ -7,9 +7,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Setter
-@Getter
-@ToString
+@Data
 @Entity
 @Table(name = "operation_type")
 public class OperationType {

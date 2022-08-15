@@ -1,11 +1,13 @@
 package com.andersenlab.depositservice.controllers;
 
 import com.andersenlab.depositservice.models.dto.CardDTO;
+import com.andersenlab.depositservice.models.entity.Card;
 import com.andersenlab.depositservice.models.mapStruct.CardMapper;
 import com.andersenlab.depositservice.services.CardService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,10 +23,10 @@ public class CardController {
     private final CardMapper cardMapper;
 
     @GetMapping("/{clientId}")
-    @ApiOperation("Метод для просмотра карт у пользователя по полю clientId. " +
-            "clientId должен быть обязательно UUID! ")
-    public List<CardDTO> getAllCardsByAccount_clientId(@PathVariable UUID clientId){
-        return cardMapper.toListCardDTO(cardService.getCardsByAccount_clientId(clientId));
+    @ApiOperation("The method for viewing the user's cards by the ClientID" + "ClientID field must be UUID! ")
+    public ResponseEntity<List<CardDTO>> getAllCardsByAccount_clientId(@PathVariable UUID clientId){
+        List<Card> cardDTO = cardService.getCardsByAccount_clientId(clientId);
+        return ResponseEntity.ok(cardMapper.toListCardDTO(cardDTO));
     }
 
 }

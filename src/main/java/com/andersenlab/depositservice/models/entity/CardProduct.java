@@ -9,9 +9,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Setter
-@Getter
-@ToString
+@Data
 @Entity
 @Table(name = "card_product")
 public class CardProduct {
@@ -51,7 +49,7 @@ public class CardProduct {
     private BigDecimal productPrice;
 
     @Column(name = "currency_code")
-    private char currencyCode;
+    private String currencyCode;
 
     @Column(name = "card_duration")
     private int cardDuration;
