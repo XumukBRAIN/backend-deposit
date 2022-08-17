@@ -14,7 +14,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "card")
 @Data
-@Builder
+@Builder(access = AccessLevel.PUBLIC)
 public class Card {
 
     @Id

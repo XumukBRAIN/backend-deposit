@@ -53,7 +53,7 @@ public class Account {
     private LocalDate closeDate;
 
     @Column(name = "is_active")
-    private boolean isActive;
+    private boolean itActive;
 
     @Column(name = "salary_project")
     private String salaryProject;

@@ -5,7 +5,7 @@ import com.andersenlab.depositservice.repositories.CardRepository;
 import com.andersenlab.depositservice.exception.CardNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.List;
 import java.util.UUID;
@@ -16,12 +16,12 @@ public class CardService {
 
     private final CardRepository cardRepository;
 
-    @Transactional(readOnly = true)
-    public List<Card> getCardsByAccount_clientId(UUID client_id){
-        List<Card> cardList = cardRepository.findByAccount_ClientId(client_id);
 
-        if(cardList.isEmpty())
-            throw new CardNotFoundException("Cards with this clientId not found");
+    public List<Card> getCardsByAccount_clientIdAndCardIsActive(UUID clientId){
+        List<Card> cardList = cardRepository.findByAccount_ClientIdAndAccount_ItActiveTrue(clientId);
+
+        if (cardList.isEmpty())
+            throw new CardNotFoundException("Active cards with this clientId not found");
 
         return cardList;
     }

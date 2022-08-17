@@ -23,10 +23,11 @@ public class CardController {
     private final CardMapper cardMapper;
 
     @GetMapping("/{clientId}")
-    @ApiOperation("The method for viewing the user's cards by the ClientID" + "ClientID field must be UUID! ")
-    public ResponseEntity<List<CardDTO>> getAllCardsByAccount_clientId(@PathVariable UUID clientId){
-        List<Card> cardDTO = cardService.getCardsByAccount_clientId(clientId);
-        return ResponseEntity.ok(cardMapper.toListCardDTO(cardDTO));
+    @ApiOperation("The method for viewing the user's cards by the ClientID" + "ClientID field must be UUID! " +
+            "And cards  must be active")
+    public ResponseEntity<List<CardDTO>> getAllCardsByClientIdAndCardIsActive(@PathVariable UUID clientId){
+        List<Card> cardList = cardService.getCardsByAccount_clientIdAndCardIsActive(clientId);
+        return ResponseEntity.ok(cardMapper.toListCardDTO(cardList));
     }
 
 }

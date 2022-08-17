@@ -10,7 +10,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import static org.springframework.http.HttpStatus.*;
 
 @ControllerAdvice
-public class RestAppExceptionHandler extends ResponseEntityExceptionHandler {
+public class DepositServiceExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(CardNotFoundException.class)
     protected ResponseEntity<Object> handleCardNotFoundException(RuntimeException e, WebRequest request){
