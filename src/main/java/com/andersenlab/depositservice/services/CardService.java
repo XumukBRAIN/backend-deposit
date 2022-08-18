@@ -17,8 +17,8 @@ public class CardService {
     private final CardRepository cardRepository;
 
 
-    public List<Card> getCardsByAccount_clientIdAndCardIsActive(UUID clientId){
-        List<Card> cardList = cardRepository.findByAccount_ClientIdAndAccount_ItActiveTrue(clientId);
+    public List<Card> getCardsByAccountClientIdAndCardIsActive(UUID clientId){
+        List<Card> cardList = cardRepository.findByAccountClientIdAndAccountItActiveTrue(clientId);
 
         if (cardList.isEmpty())
             throw new CardNotFoundException("Active cards with this clientId not found");

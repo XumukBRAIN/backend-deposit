@@ -10,5 +10,5 @@ import java.util.UUID;
 @Repository
 public interface CardRepository extends JpaRepository<Card, UUID> {
 
-    List<Card> findByAccount_ClientIdAndAccount_ItActiveTrue(UUID clientId);
+    List<Card> findByAccountClientIdAndAccountItActiveTrue(UUID clientId);
 }

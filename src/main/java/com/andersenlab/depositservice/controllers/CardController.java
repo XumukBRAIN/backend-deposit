@@ -26,7 +26,7 @@ public class CardController {
     @ApiOperation("The method for viewing the user's cards by the ClientID" + "ClientID field must be UUID! " +
             "And cards  must be active")
     public ResponseEntity<List<CardDTO>> getAllCardsByClientIdAndCardIsActive(@PathVariable UUID clientId){
-        List<Card> cardList = cardService.getCardsByAccount_clientIdAndCardIsActive(clientId);
+        List<Card> cardList = cardService.getCardsByAccountClientIdAndCardIsActive(clientId);
         return ResponseEntity.ok(cardMapper.toListCardDTO(cardList));
     }
 
