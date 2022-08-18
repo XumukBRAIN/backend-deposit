@@ -1,5 +1,8 @@
+--liquibase formatted sql
+--changeset Ivan Kudryashov:create_agreement_table
+
 create table agreement(
-    id uuid primary key default gen_random_uuid(),
+    id uuid primary key default uuid_generate_v4(),
     agreement_number varchar(20) not null unique,
     account_id uuid references account(id),
     product_id int references product(id),
@@ -11,3 +14,5 @@ create table agreement(
     is_active boolean,
     auto_renewal boolean
 )
+
+--rollback DROP TABLE IF EXISTS agreement CASCADE

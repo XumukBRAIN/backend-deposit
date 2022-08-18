@@ -1,5 +1,8 @@
+--liquibase formatted sql
+--changeset Ivan Kudryashov:create_card_table
+
 create table card (
-    id uuid primary key default gen_random_uuid(),
+    id uuid primary key default uuid_generate_v4(),
     card_number char(16),
     account_id uuid references account(id),
     transactional_limit numeric(19,4),
@@ -10,3 +13,5 @@ create table card (
     is_default boolean,
     card_product_id int references card_product(id)
 )
+
+--rollback DROP TABLE IF EXISTS card CASCADE

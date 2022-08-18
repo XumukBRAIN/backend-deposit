@@ -1,5 +1,11 @@
+--liquibase formatted sql
+--changeset Ivan Kudryashov:create_account_table
+
+CREATE
+    EXTENSION IF NOT EXISTS "uuid-ossp";
+
 create table account(
-    id uuid primary key default gen_random_uuid(),
+    id uuid primary key default uuid_generate_v4(),
     account_number varchar(30) not null unique,
     client_id uuid not null,
     currency_code varchar(3),
@@ -10,3 +16,5 @@ create table account(
     salary_project varchar(30),
     blocked_sum numeric(19,4)
 )
+
+--rollback DROP TABLE IF EXISTS account CASCADE
