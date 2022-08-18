@@ -1,13 +1,15 @@
 databaseChangeLog:
   - include:
-      file: db/changelog/changeset/product_table.sql
+      file: db/changelog/changeset/create-card-table
   - include:
-      file: db/changelog/changeset/account_table.sql
+      file: db/changelog/changeset/create-card_product-table
   - include:
-      file: db/changelog/changeset/operation_type_table.sql
+      file: db/changelog/changeset/create-account-table
   - include:
-      file: db/changelog/changeset/agreement_table.sql
+      file: db/changelog/changeset/create-agreement-table
   - include:
-      file: db/changelog/changeset/card_table.sql
+      file: db/changelog/changeset/create-operation_type-table
   - include:
-      file: db/changelog/changeset/operation_table.sql
+      file: db/changelog/changeset/create-operation-table
+  - include:
+      file: db/changelog/changeset/create-product-table
