@@ -8,7 +8,7 @@ CREATE TABLE operation(
                           completed_at TIMESTAMP WITH TIME ZONE,
                           sum NUMERIC(19,4),
                           details TEXT,
-                          currency_code VARCHAR(3),
+                          currency_code CHAR(3),
                           operation_type_id int references operation_type(id)
 )
 

@@ -11,7 +11,7 @@ create table card_product(
                              premium_status varchar(30),
                              service_price numeric(19,4),
                              product_price numeric(19,4),
-                             currency_code varchar(3),
+                             currency_code char(3),
                              is_active boolean,
                              card_duration int
 )

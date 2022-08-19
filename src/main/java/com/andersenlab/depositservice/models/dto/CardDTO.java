@@ -1,5 +1,6 @@
 package com.andersenlab.depositservice.models.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -27,7 +28,8 @@ public class CardDTO {
 
     private String digitalWallet;
 
-    private boolean itDefault;
+    @JsonProperty("isDefault")
+    private boolean isDefault;
 
     private String cardProductId;
 

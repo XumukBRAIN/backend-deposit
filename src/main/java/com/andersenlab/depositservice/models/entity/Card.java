@@ -51,10 +51,10 @@ public class Card {
     private String digitalWallet;
 
     @Column(name = "is_default")
-    private boolean itDefault;
+    private boolean isDefault;
 
-    public boolean isItDefault() {
-        return itDefault;
+    public boolean isIsDefault() {
+        return isDefault;
     }
 
 }

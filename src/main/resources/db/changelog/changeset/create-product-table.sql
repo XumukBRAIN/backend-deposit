@@ -12,7 +12,7 @@ CREATE TABLE product(
                         is_capitalization BOOLEAN,
                         amount_min NUMERIC(19,4),
                         amount_max NUMERIC(19,4),
-                        currency_code VARCHAR(3),
+                        currency_code CHAR(3),
                         is_active BOOLEAN,
                         is_revocable BOOLEAN,
                         min_interest_rate NUMERIC(6,4),
