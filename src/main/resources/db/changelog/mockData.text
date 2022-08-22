@@ -1,0 +1,8 @@
+insert into account (account_number, client_id, currency_code, current_balance, open_date, close_date, is_active, salary_project, blocked_sum)
+values ('qweras', uuid_generate_v4(), 'USD', 12.3,current_date,current_date,true,'salas',21.3);
+
+insert into card_product(card_name, payment_system, cashback, co_brand, is_virtual, premium_status, service_price, product_price, currency_code, is_active, card_duration)
+VALUES('card name', 'VISA', 1.0,'andersen',true,'premium status',12.1,12.4,'USD',true,1);
+
+insert into card(card_number, account_id, transactional_limit, status, expiration_date, holder_name, digital_wallet, is_default, card_product_id)
+VALUES(1234123456789012,'5504d4a4-41c6-457d-be85-3fdd9e6570ad',2.1,'status',current_date,'ivan','digital wallet',true, 1);

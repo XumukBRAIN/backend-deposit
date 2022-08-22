@@ -8,11 +8,11 @@
         <version>2.6.7</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.andersenlab</groupId>
+    <groupId>com.andersenlab.depositservice</groupId>
     <artifactId>DepositService</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>DepositService</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Deposit service. A-music BE-developing</description>
     <properties>
         <java.version>17</java.version>
         <org.mapstruct.version>1.5.2.Final</org.mapstruct.version>
@@ -21,10 +21,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
