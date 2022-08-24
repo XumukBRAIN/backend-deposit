@@ -18,11 +18,13 @@ public class CardInfoDTO {
 
     private BigDecimal currentBalance;
 
-    private LocalDate expirationDate;
-
     private String currencyCode;
 
     private String holderName;
+
+    private LocalDate expirationDate;
+
+    private String accountNumber;
 
     private String status;
 

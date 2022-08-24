@@ -12,4 +12,6 @@ public interface CardRepository extends JpaRepository<Card, UUID> {
 
     List<Card> findByAccountClientIdAndAccountItActiveTrue(UUID clientId);
 
+    Card findCardByIdAndAccountItActiveTrue(UUID cardId);
+
 }
