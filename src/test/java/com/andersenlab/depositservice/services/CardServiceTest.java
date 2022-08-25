@@ -45,14 +45,13 @@ public class CardServiceTest {
     void getInfoDepositCard(){
         UUID cardId = UUID.randomUUID();
 
-        Card cardExp = cardService.getActiveCardInfoByCardId(cardId);
+        Card card = new Card();
 
-        when(cardRepository.findCardByIdAndAccountItActiveTrue(cardId))
-                .thenReturn(any());
+        when(cardRepository.findCardByIdAndAccountItActiveTrue(cardId)).thenReturn(card);
 
-        Card cardAct = cardService.getActiveCardInfoByCardId(cardId);
+        Card card2 = cardService.getActiveCardInfoByCardId(cardId);
 
-        assertEquals(cardExp, cardAct);
+        assertEquals(card, card2);
     }
 
     @Test
@@ -64,18 +63,6 @@ public class CardServiceTest {
 
         ThrowableAssert.ThrowingCallable throwingCallable =
                 () -> cardService.getCardsByAccountClientIdAndCardIsActive(clientId);
-
-        assertThatThrownBy(throwingCallable).isInstanceOf(CardNotFoundException.class);
-    }
-
-    @Test
-    void getInfoDepositCardShouldThrownException(){
-        UUID cardId = UUID.randomUUID();
-
-        when(cardRepository.findCardByIdAndAccountItActiveTrue(cardId))
-                .thenThrow(new CardNotFoundException("Information about this card not found. Cause by: card with this ID doesn't exist."));
-
-        ThrowableAssert.ThrowingCallable throwingCallable = () -> cardService.getActiveCardInfoByCardId(cardId);
 
         assertThatThrownBy(throwingCallable).isInstanceOf(CardNotFoundException.class);
     }
