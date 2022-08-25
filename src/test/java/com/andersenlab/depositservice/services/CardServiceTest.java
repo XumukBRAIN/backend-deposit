@@ -41,15 +41,41 @@ public class CardServiceTest {
 
         assertEquals(expectedList, actualList);
     }
+    @Test
+    void getInfoDepositCard(){
+        UUID cardId = UUID.randomUUID();
+
+        Card cardExp = cardService.getActiveCardInfoByCardId(cardId);
+
+        when(cardRepository.findCardByIdAndAccountItActiveTrue(cardId))
+                .thenReturn(any());
+
+        Card cardAct = cardService.getActiveCardInfoByCardId(cardId);
+
+        assertEquals(cardExp, cardAct);
+    }
 
     @Test
     void findCardsByClientIdShouldThrownException() {
         UUID clientId = UUID.randomUUID();
 
         when(cardRepository.findByAccountClientIdAndAccountItActiveTrue(clientId))
-                .thenReturn(anyList());
+                .thenThrow(new CardNotFoundException("Information about this card not found. Cause by: card with this ID doesn't exist."));
 
-        ThrowableAssert.ThrowingCallable throwingCallable = () -> cardService.getCardsByAccountClientIdAndCardIsActive(clientId);
+        ThrowableAssert.ThrowingCallable throwingCallable =
+                () -> cardService.getCardsByAccountClientIdAndCardIsActive(clientId);
+
+        assertThatThrownBy(throwingCallable).isInstanceOf(CardNotFoundException.class);
+    }
+
+    @Test
+    void getInfoDepositCardShouldThrownException(){
+        UUID cardId = UUID.randomUUID();
+
+        when(cardRepository.findCardByIdAndAccountItActiveTrue(cardId))
+                .thenThrow(new CardNotFoundException("Information about this card not found. Cause by: card with this ID doesn't exist."));
+
+        ThrowableAssert.ThrowingCallable throwingCallable = () -> cardService.getActiveCardInfoByCardId(cardId);
 
         assertThatThrownBy(throwingCallable).isInstanceOf(CardNotFoundException.class);
     }

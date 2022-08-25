@@ -16,13 +16,11 @@ public class CardService {
     private final CardRepository cardRepository;
 
     public List<Card> getCardsByAccountClientIdAndCardIsActive(UUID clientId){
-
-        //if (cardList.isEmpty()) throw new CardNotFoundException("Active cards with this clientId not found");
-
         return cardRepository.findByAccountClientIdAndAccountItActiveTrue(clientId);
     }
 
     public Card getActiveCardInfoByCardId(UUID cardId) {
         return cardRepository.findCardByIdAndAccountItActiveTrue(cardId);
     }
+
 }

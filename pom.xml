@@ -8,7 +8,7 @@
         <version>2.6.7</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.andersenlab.depositservice</groupId>
+    <groupId>com.andersenlab</groupId>
     <artifactId>DepositService</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>DepositService</name>
