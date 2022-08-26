@@ -18,7 +18,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping(path = "auth/deposit-cards")
 @RequiredArgsConstructor
-@Api("DS-5._Get_user card_list")
+@Api("US-4.1, 4.2")
 public class CardController {
 
     private final CardService cardService;

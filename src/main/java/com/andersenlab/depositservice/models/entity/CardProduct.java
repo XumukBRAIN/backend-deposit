@@ -19,7 +19,7 @@ public class CardProduct {
     @EqualsAndHashCode.Exclude
     private int id;
 
-    @OneToOne(mappedBy = "cardProduct", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "cardProduct")
     @ToString.Exclude
     @JsonIgnoreProperties
     private Card card;
@@ -51,7 +51,13 @@ public class CardProduct {
     @Column(name = "currency_code")
     private String currencyCode;
 
+    @Column(name = "is_active")
+    private boolean isActive;
+
     @Column(name = "card_duration")
     private int cardDuration;
 
+    public boolean isIsActive() {
+        return isActive;
+    }
 }

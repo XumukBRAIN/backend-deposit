@@ -27,4 +27,9 @@ public class DepositServiceExceptionHandler extends ResponseEntityExceptionHandl
         return handleExceptionInternal(e, e.getMessage(), new HttpHeaders(), INTERNAL_SERVER_ERROR, request);
     }
 
+    @ExceptionHandler(CardProductNotFoundException.class)
+    protected ResponseEntity<Object> handleCardProductNotFoundException(RuntimeException e, WebRequest request){
+        return handleExceptionInternal(e, e.getMessage(), new HttpHeaders(), NOT_FOUND, request);
+    }
+
 }
