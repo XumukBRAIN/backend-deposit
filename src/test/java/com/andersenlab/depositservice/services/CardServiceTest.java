@@ -4,7 +4,6 @@ import com.andersenlab.depositservice.TestMapperCard;
 import com.andersenlab.depositservice.exception.CardNotFoundException;
 import com.andersenlab.depositservice.models.entity.Card;
 import com.andersenlab.depositservice.repositories.CardRepository;
-import org.assertj.core.api.ThrowableAssert;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -14,8 +13,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 import java.util.UUID;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 
@@ -40,6 +39,8 @@ public class CardServiceTest {
         List<Card> actualList = cardService.getCardsByAccountClientIdAndCardIsActive(clientId);
 
         assertEquals(expectedList, actualList);
+
+        System.out.println("Method is work correctly");
     }
     @Test
     void getInfoDepositCard(){
@@ -52,19 +53,31 @@ public class CardServiceTest {
         Card card2 = cardService.getActiveCardInfoByCardId(cardId);
 
         assertEquals(card, card2);
+
+        System.out.println("Method is work correctly");
     }
 
     @Test
     void findCardsByClientIdShouldThrownException() {
         UUID clientId = UUID.randomUUID();
 
-        when(cardRepository.findByAccountClientIdAndAccountItActiveTrue(clientId))
+        when(cardService.getCardsByAccountClientIdAndCardIsActive(clientId))
+                .thenThrow(new CardNotFoundException("Cards was not found. Cause by: card with this ID doesn't exist."));
+
+        System.out.println(assertThrows(CardNotFoundException.class, ()->when(cardService.getCardsByAccountClientIdAndCardIsActive(clientId))).getMessage());
+
+    }
+
+    @Test
+    void findCardsByCardIdShouldThrownException() {
+        UUID cardId = UUID.randomUUID();
+
+        when(cardService.getActiveCardInfoByCardId(cardId))
                 .thenThrow(new CardNotFoundException("Information about this card not found. Cause by: card with this ID doesn't exist."));
 
-        ThrowableAssert.ThrowingCallable throwingCallable =
-                () -> cardService.getCardsByAccountClientIdAndCardIsActive(clientId);
+        System.out.println(assertThrows(CardNotFoundException.class, ()->when(cardService.getActiveCardInfoByCardId(cardId)))
+                .getMessage());
 
-        assertThatThrownBy(throwingCallable).isInstanceOf(CardNotFoundException.class);
     }
 
 }
