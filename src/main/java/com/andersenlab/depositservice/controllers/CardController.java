@@ -19,6 +19,7 @@ import java.util.UUID;
 @RequestMapping(path = "auth/deposit-cards")
 @RequiredArgsConstructor
 @Api("US-4.1, 4.2")
+@CrossOrigin
 public class CardController {
 
     private final CardService cardService;
