@@ -17,6 +17,7 @@ public interface CardMapper {
     @Mapping(target = "accountNumber", source = "card.account.accountNumber")
     @Mapping(target = "currencyCode", source = "card.account.currencyCode")
     @Mapping(target = "currentBalance", source = "card.account.currentBalance")
+    @Mapping(target = "paymentSystem", source = "card.cardProduct.paymentSystem")
     CardDTO toCardDTO(Card card);
 
     List<CardDTO> toListCardDTO(List<Card> cardList);

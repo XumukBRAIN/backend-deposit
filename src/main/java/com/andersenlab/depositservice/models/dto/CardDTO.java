@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 
 @Data
@@ -38,5 +39,9 @@ public class CardDTO {
     private String currencyCode;
 
     private BigDecimal currentBalance;
+
+    private String paymentSystem;
+
+    private LocalDate dateOfCreation;
 
 }

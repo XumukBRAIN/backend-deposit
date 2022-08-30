@@ -13,4 +13,6 @@ databaseChangeLog:
       file: db/changelog/changeset/create-operation_type-table.sql
   - include:
       file: db/changelog/changeset/create-operation-table.sql
+  - include:
+      file: db/changelog/changeset/alter-card-table.sql
 

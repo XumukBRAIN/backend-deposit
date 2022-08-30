@@ -1,6 +1,7 @@
 package com.andersenlab.depositservice;
 
 import com.andersenlab.depositservice.models.entity.Card;
+import com.andersenlab.depositservice.models.entity.CardProduct;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,16 @@ public class TestMapperCard {
         return list;
 
 
+    }
+
+    public static List<CardProduct> createProductList(){
+        List<CardProduct> productList = new ArrayList<>();
+        for (int i = 0; i < 13; i++){
+            productList.add(new CardProduct().builder()
+                    .id(1)
+                    .build());
+        }
+        return productList;
     }
 
 }
